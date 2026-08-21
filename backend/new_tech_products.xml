@@ -1,0 +1,52 @@
+<products>
+    <product>
+        <name>Laptop Pro 15</name>
+        <price>1200.00</price>
+        <stock>15</stock>
+    </product>
+    <product>
+        <name>Wireless Mouse</name>
+        <price>23.50</price>
+        <stock>110</stock>
+    </product>
+    <product>
+        <name>Mechanical Keyboard</name>
+        <price>75.99</price>
+        <stock>50</stock>
+    </product>
+    <product>
+        <name>4K Monitor</name>
+        <price>300.00</price>
+        <stock>27</stock>
+    </product>
+    <product>
+        <name>External SSD 1TB</name>
+        <price>150.00</price>
+        <stock>48</stock>
+    </product>
+    <product>
+        <name>Smartphone X200</name>
+        <price>899.00</price>
+        <stock>25</stock>
+    </product>
+    <product>
+        <name>Bluetooth Headphones</name>
+        <price>60.00</price>
+        <stock>75</stock>
+    </product>
+    <product>
+        <name>USB-C Hub</name>
+        <price>45.00</price>
+        <stock>80</stock>
+    </product>
+    <product>
+        <name>Smartwatch Z</name>
+        <price>199.99</price>
+        <stock>30</stock>
+    </product>
+    <product>
+        <name>Portable Projector</name>
+        <price>350.00</price>
+        <stock>22</stock>
+    </product>
+</products>
