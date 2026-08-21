@@ -1,0 +1,227 @@
+/* === Global Reset & Base === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Header === */
+header {
+  background: #007bff;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#logoutBtn {
+  background: #dc3545;
+  border: none;
+  padding: 0.6rem 1rem;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+#logoutBtn:hover {
+  background: #b52a35;
+}
+
+/* === Main Layout === */
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+}
+
+/* === Sections === */
+.section {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin-bottom: 1.5rem;
+}
+
+.section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+/* === Product Cards === */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.product {
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.product strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #34495e;
+  margin-bottom: 0.5rem;
+}
+
+.product button {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.product button:hover {
+  background: #0056b3;
+}
+
+/* === Cart === */
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+}
+
+.cart-item button {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.cart-item button:hover {
+  background: #c0392b;
+}
+
+/* === Checkout Button === */
+#checkoutBtn {
+  background-color: #28a745;
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#checkoutBtn:hover {
+  background-color: #1e7e34;
+}
+
+#checkoutBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* === Responses Section === */
+.responses {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.responses h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+pre {
+  background: #222;
+  color: #eee;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 0.95rem;
+}
+
+/* === Order History === */
+.order-history {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.order-history h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.order {
+  background: #fff;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  margin-bottom: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+.order:hover {
+  transform: scale(1.01);
+}
+
+/* === Status Colors === */
+#response.success {
+  color: #28a745;
+}
+
+#response.error {
+  color: #dc3545;
+}
