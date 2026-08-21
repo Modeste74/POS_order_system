@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - POS App</title>
+  <link rel="stylesheet" href="./register.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Create Account</h2>
+    <form id="registerForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Register</button>
+    </form>
+    <p class="alt-link">Already have an account? <a href="login.html">Login</a></p>
+    <p id="response"></p>
+  </div>
+
+  <script>
+    const API_BASE = "http://127.0.0.1:5000";
+
+    document.getElementById("registerForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const username = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      const respEl = document.getElementById("response");
+
+      try {
+        const res = await fetch(`${API_BASE}/auth/register`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, email, password })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          respEl.textContent = "✅ Registration successful! Redirecting to login...";
+          respEl.className = "success";
+          setTimeout(() => window.location.href = "login.html", 1500);
+        } else {
+          respEl.textContent = "❌ " + (data.error || "Registration failed");
+          respEl.className = "error";
+        }
+      } catch (err) {
+        respEl.textContent = "❌ Error: " + err.message;
+        respEl.className = "error";
+      }
+    });
+  </script>
+</body>
+</html>

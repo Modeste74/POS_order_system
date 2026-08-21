@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - POS App</title>
+  <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p class="link-text">
+      Don’t have an account? <a href="register.html">Register</a>
+    </p>
+    <p id="response"></p>
+  </div>
+
+  <script>
+    const API_BASE = "http://127.0.0.1:5000";
+
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const respEl = document.getElementById("response");
+
+      // quick validation before sending request
+      if (!email || !password) {
+        respEl.textContent = "❌ Please fill out all fields";
+        respEl.className = "error";
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API_BASE}/auth/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          localStorage.setItem("token", data.token);
+          respEl.textContent = "✅ Login successful! Redirecting...";
+          respEl.className = "success";
+          setTimeout(() => window.location.href = "index.html", 1000);
+        } else {
+          respEl.textContent = "❌ " + (data.error || "Login failed");
+          respEl.className = "error";
+        }
+      } catch (err) {
+        respEl.textContent = "❌ Error: " + err.message;
+        respEl.className = "error";
+      }
+    });
+  </script>
+</body>
+</html>
